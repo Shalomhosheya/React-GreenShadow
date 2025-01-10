@@ -7,15 +7,19 @@ function App() {
   return (
     <>
     <div className='main1'>
+      <input type="checkbox" id="chk" aria-hidden="true"/>
+		
+     
+      <div className="login">
+        
+        <LoginSignupPage/>
+       </div>
+       
      <div className="signup">
       
      <LoginPage/>
      </div>
-    
-     <div className="login">
-        
-      <LoginSignupPage/>
-     </div>
+   
       
     </div>
      

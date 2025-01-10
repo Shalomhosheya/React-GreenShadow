@@ -2,11 +2,8 @@ import React from 'react';
 
 function LoginPage() {
   return (
-  <div>
-    
- 
-<input type="checkbox" id="chk" aria-hidden="true"></input>
-<div className='login'>
+  <>
+  <div className='login'>
      <form>
         <label htmlFor="chk" aria-hidden="true" className="label1">
           Login
@@ -32,7 +29,7 @@ function LoginPage() {
         </button>
       </form>
 </div>
-  </div>
+  </>
 
   );
 }
