@@ -6,9 +6,14 @@ function App() {
   
   return (
     <>
-      <LoginPage/>
-      <LoginSignupPage/>
+     <div className="signup">
       
+     <LoginPage/>
+     </div>
+      <div className="login">
+        
+      <LoginSignupPage/>
+      </div>
       
     </>
   )
