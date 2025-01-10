@@ -3,7 +3,7 @@ import React from 'react';
 function LoginPage() {
   return (
   <>
-  <div className='login'>
+  <div>
      <form>
         <label htmlFor="chk" aria-hidden="true" className="label1">
           Login

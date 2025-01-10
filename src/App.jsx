@@ -10,12 +10,12 @@ function App() {
       <input type="checkbox" id="chk" aria-hidden="true"/>
 		
      
-      <div className="login">
+      <div className="signup">
         
         <LoginSignupPage/>
        </div>
-       
-     <div className="signup">
+
+     <div className='login'>
       
      <LoginPage/>
      </div>
