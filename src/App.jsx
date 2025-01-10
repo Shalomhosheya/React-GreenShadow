@@ -6,15 +6,19 @@ function App() {
   
   return (
     <>
+    <div className='main1'>
      <div className="signup">
       
      <LoginPage/>
      </div>
-      <div className="login">
+    
+     <div className="login">
         
       <LoginSignupPage/>
-      </div>
+     </div>
       
+    </div>
+     
     </>
   )
 }

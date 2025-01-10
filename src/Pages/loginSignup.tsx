@@ -2,7 +2,9 @@ import React from 'react';
 
 function LoginSignupPage() {
   return (
-    <div className='login'>
+ <div>
+    <input type="checkbox" id="chk" aria-hidden="true"></input>
+    <div className='signup'>
         <form>
       <label htmlFor="chk" aria-hidden="true" className="label1">
         Sign up
@@ -52,7 +54,8 @@ function LoginSignupPage() {
       </button>
     </form>
     </div>
-  );
+ </div>
+);
 }
 
 export default LoginSignupPage;

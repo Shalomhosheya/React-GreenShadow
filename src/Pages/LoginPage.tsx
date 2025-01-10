@@ -2,8 +2,12 @@ import React from 'react';
 
 function LoginPage() {
   return (
-    <div className='signup'>
-      <form>
+  <div>
+    
+ 
+<input type="checkbox" id="chk" aria-hidden="true"></input>
+<div className='login'>
+     <form>
         <label htmlFor="chk" aria-hidden="true" className="label1">
           Login
         </label>
@@ -27,7 +31,9 @@ function LoginPage() {
           Login
         </button>
       </form>
-    </div>
+</div>
+  </div>
+
   );
 }
 
