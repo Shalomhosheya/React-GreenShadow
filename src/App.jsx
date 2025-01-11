@@ -1,30 +1,26 @@
-import './App.css'
-import LoginPage from './Pages/LoginPage'
-import LoginSignupPage from './Pages/loginSignup'
+import './App.css';
+import LoginPage from './Pages/LoginPage';
+import LoginSignupPage from './Pages/LoginSignup';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './Pages/DashBoard';
 
 function App() {
-  
   return (
-    <>
-    <div className='main1'>
-      <input type="checkbox" id="chk" aria-hidden="true"/>
-		
-     
-      <div className="signup">
-        
-        <LoginSignupPage/>
-       </div>
-
-     <div className='login'>
-      
-     <LoginPage/>
-     </div>
-   
-      
-    </div>
-     
-    </>
-  )
+    <Router>
+      <body className='b1'>
+        <Routes>
+          {/* Route for LoginSignupPage */}
+          <Route path="/" element={<LoginPage />} />
+          
+          {/* Route for LoginPage
+          <Route path="/login" element={<LoginSignupPage />} />
+           */}
+          {/* Route for Dashboard */}
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </body>
+    </Router>
+  );
 }
 
-export default App
+export default App;
