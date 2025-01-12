@@ -5,6 +5,7 @@ import Dashboard from './Pages/DashBoard';
 import FieldPage from './Pages/FieldPage';
 import StaffPage from './Pages/StaffPage';
 import VehiclePage from './Pages/VehiclePage';
+import ReservationPage from './Pages/ReservationPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/FieldPage" element={<FieldPage />} />
           <Route path="/StaffPage" element={<StaffPage />} />
           <Route path="/VehiclePage" element={<VehiclePage />} />
+          <Route path='/ReservationPage' element={<ReservationPage />} />
         </Routes>
       
     </Router>
