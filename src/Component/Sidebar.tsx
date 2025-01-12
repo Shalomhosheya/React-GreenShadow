@@ -15,7 +15,7 @@ function Sidebar() {
         <NavLink to="/StaffPage" className={({ isActive }) => (isActive ? 'active' : '')}>
           Staff
         </NavLink>
-        <NavLink to="/vehicle" className={({ isActive }) => (isActive ? 'active' : '')}>
+        <NavLink to="/VehiclePage" className={({ isActive }) => (isActive ? 'active' : '')}>
           Vehicle
         </NavLink>
         <NavLink to="/reservation" className={({ isActive }) => (isActive ? 'active' : '')}>
