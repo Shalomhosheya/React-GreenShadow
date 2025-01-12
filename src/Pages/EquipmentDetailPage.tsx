@@ -1,7 +1,7 @@
 import React from "react"
 import AccountDetails from "../Component/AccountDetail"
 import Sidebar from "../Component/Sidebar"
-function Equipment(){
+function EquipmentDetailPage(){
   return(
     <body>
         <AccountDetails/>
@@ -12,4 +12,4 @@ function Equipment(){
   )
 
 }
-export default Equipment 
+export default EquipmentDetailPage 
