@@ -8,7 +8,6 @@ import FieldPage from './Pages/FieldPage';
 function App() {
   return (
     <Router>
-      <body className='b1'>
         <Routes>
           {/* Route for LoginSignupPage */}
           <Route path="/" element={<LoginPage />} />
@@ -20,7 +19,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/FieldPage" element={<FieldPage />} />
         </Routes>
-      </body>
+      
     </Router>
   );
 }

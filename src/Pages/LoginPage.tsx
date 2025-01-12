@@ -13,7 +13,8 @@ function LoginPage() {
 
   return (
     <>
-      <div className='main1'>
+    <body  className='b1'>
+    <div className='main1'>
         <input type="checkbox" id="chk" aria-hidden="true" />
         
         {/* Sign Up Form */}
@@ -96,6 +97,8 @@ function LoginPage() {
           </form>
         </div>
       </div>
+
+    </body>
     </>
   );
 }
