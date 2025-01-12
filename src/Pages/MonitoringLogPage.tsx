@@ -87,7 +87,7 @@ function MonitoringLogPage() {
                   <textarea
                     className="form-control"
                     id="observationDis_Ml"
-                    rows ="3"
+                    // rows ="3"
                   ></textarea>
                 </div>
                 <br />
