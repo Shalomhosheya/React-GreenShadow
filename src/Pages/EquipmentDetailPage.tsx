@@ -5,10 +5,8 @@ import Sidebar from "../Component/Sidebar";
 function EquipmentDetailPage() {
   return (
     <div>
-      {/* Account Details */}
       <AccountDetails />
 
-      {/* Main Dashboard Container */}
       <div className="dashboard-container">
         <Sidebar />
 
@@ -16,17 +14,14 @@ function EquipmentDetailPage() {
           <h2 className="text-center anim1">Equipment Input</h2>
           <br />
 
-          {/* Equipment Input Form */}
           <div className="card anim1">
             <div className="card-body mainContent">
               <div className="card-body">
-                {/* Equipment Code */}
                 <div>
                   Equipment Code: <label id="lbl4"> </label>
                 </div>
                 <br />
 
-                {/* Equipment Name */}
                 <div className="input-group mb-4">
                   <span className="input-group-text" id="addon-wrapping">
                     Equipment
@@ -41,7 +36,6 @@ function EquipmentDetailPage() {
                   />
                 </div>
 
-                {/* Equipment Type */}
                 <div className="input-group mb-3">
                   <label className="input-group-text" htmlFor="type_E">
                     Type
@@ -54,7 +48,6 @@ function EquipmentDetailPage() {
                   </select>
                 </div>
 
-                {/* Equipment Status */}
                 <div className="input-group mb-3">
                   <label className="input-group-text" htmlFor="status_E">
                     Status
@@ -68,7 +61,6 @@ function EquipmentDetailPage() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div>
                 <button type="button" className="btn btn-primary" id="addBtn_E">
                   ADD

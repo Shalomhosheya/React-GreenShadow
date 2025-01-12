@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../Component/Sidebar"; // Assuming Sidebar is another component in your project
+import Sidebar from "../Component/Sidebar"; 
 import AccountDetails from "../Component/AccountDetail";
 
 function StaffPage() {

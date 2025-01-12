@@ -5,10 +5,8 @@ import Sidebar from "../Component/Sidebar";
 function CropPage() {
   return (
     <div>
-      {/* Account Details */}
       <AccountDetails />
 
-      {/* Main Dashboard Container */}
       <div className="dashboard-container">
         <Sidebar />
 
@@ -20,7 +18,6 @@ function CropPage() {
           <br />
           <br />
 
-          {/* Crop Input Form */}
           <div className="card anim1">
             <div className="card-body mainContent">
               {/* Crop Name */}
@@ -38,7 +35,6 @@ function CropPage() {
                 />
               </div>
 
-              {/* Crop Scientific Name */}
               <div className="input-group mb-4">
                 <span className="input-group-text" id="addon-wrapping2">
                   Crop Scientific Name
@@ -53,7 +49,6 @@ function CropPage() {
                 />
               </div>
 
-              {/* Category Selection */}
               <div className="input-group mb-3">
                 <label className="input-group-text" htmlFor="category_C">
                   Category
@@ -66,7 +61,6 @@ function CropPage() {
                 </select>
               </div>
 
-              {/* Crop Season Selection */}
               <div className="input-group mb-3">
                 <label className="input-group-text" htmlFor="cropSeason_C">
                   Crop Season
@@ -108,7 +102,7 @@ function CropPage() {
               <br />
               <br />
 
-              {/* Action Buttons */}
+              {}
               <button type="button" className="btn btn-primary button10" id="addBtn_C">
                 ADD
               </button>
