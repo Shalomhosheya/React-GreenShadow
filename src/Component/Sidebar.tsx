@@ -1,21 +1,39 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import FieldPage from '../Pages/FieldPage';
 
 function Sidebar() {
   return (
     <aside className="sidebar" id="sidebar">
       <h2>Green Shadow 🟢</h2>
       <nav className="sidebar-nav">
-        <a href="#home" className="active">
+        <NavLink to="/Dashboard" className={({ isActive }) => (isActive ? 'active' : '')}>
           Home
-        </a>
-        <a href="field.html">Field</a>
-        <a href="staffPage.html">Staff</a>
-        <a href="vehicle.html">Vehicle</a>
-        <a href="reservation.html">Reservation</a>
-        <a href="crop.html">Crops</a>
-        <a href="equipMent.html">Equipment</a>
-        <a href="equipmentDetail.html">Equipment Detail</a>
-        <a href="monitoringLog.html">Monitoring Log</a>
+        </NavLink>
+        <NavLink to="/FieldPage" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Field
+        </NavLink>
+        <NavLink to="/staff" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Staff
+        </NavLink>
+        <NavLink to="/vehicle" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Vehicle
+        </NavLink>
+        <NavLink to="/reservation" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Reservation
+        </NavLink>
+        <NavLink to="/crops" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Crops
+        </NavLink>
+        <NavLink to="/equipment" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Equipment
+        </NavLink>
+        <NavLink to="/equipment-detail" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Equipment Detail
+        </NavLink>
+        <NavLink to="/monitoring-log" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Monitoring Log
+        </NavLink>
         <button id="logoutBtn" style={{ width: '13rem' }}>
           Log Out
         </button>
