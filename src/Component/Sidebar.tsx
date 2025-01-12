@@ -1,11 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Perform any logout logic here (e.g., clearing tokens)
+    navigate('/'); // Redirect to LoginPage after logout
+  };
+
   return (
     <aside className="sidebar" id="sidebar">
       <h2>Green Shadow 🟢</h2>
       <nav className="sidebar-nav">
+        {/* Navigation Links */}
         <NavLink to="/Dashboard" className={({ isActive }) => (isActive ? 'active' : '')}>
           Home
         </NavLink>
@@ -33,7 +41,13 @@ function Sidebar() {
         <NavLink to="/MonitoringLogPage" className={({ isActive }) => (isActive ? 'active' : '')}>
           Monitoring Log
         </NavLink>
-        <button id="logoutBtn" style={{ width: '13rem' }}>
+
+        {/* Log Out Button */}
+        <button
+          id="logoutBtn"
+          style={{ width: '13rem' }}
+          onClick={handleLogout}
+        >
           Log Out
         </button>
       </nav>
