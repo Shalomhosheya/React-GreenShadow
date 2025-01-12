@@ -12,7 +12,7 @@ function Sidebar() {
         <NavLink to="/FieldPage" className={({ isActive }) => (isActive ? 'active' : '')}>
           Field
         </NavLink>
-        <NavLink to="/staff" className={({ isActive }) => (isActive ? 'active' : '')}>
+        <NavLink to="/StaffPage" className={({ isActive }) => (isActive ? 'active' : '')}>
           Staff
         </NavLink>
         <NavLink to="/vehicle" className={({ isActive }) => (isActive ? 'active' : '')}>

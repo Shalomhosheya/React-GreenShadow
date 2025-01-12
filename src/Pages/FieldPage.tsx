@@ -1,8 +1,11 @@
 import React from 'react';
 import Sidebar from '../Component/Sidebar';
+import AccountDetails from '../Component/AccountDetail';
 
 function FieldPage() {
   return (
+    <body>
+        <AccountDetails/>
     <div className="dashboard-container">
       <Sidebar />
       <main className="content">
@@ -140,6 +143,8 @@ function FieldPage() {
         </div>
       </main>
     </div>
+    </body>
+    
   );
 }
 
