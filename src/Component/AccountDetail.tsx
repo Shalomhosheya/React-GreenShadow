@@ -1,11 +1,14 @@
 import React from "react";
 
+// Importing images from the src folder
+import userIcon from "../Assets/images/user.png";
+
 function AccountDetails() {
   return (
     <div>
       {/* Hamburger menu icon */}
       <img
-        src="../Assets/images/menu"
+        src={userIcon} // Imported image
         className="hamburger"
         id="hamburger"
         alt="Menu Icon"
@@ -14,7 +17,7 @@ function AccountDetails() {
       {/* Header container */}
       <div className="header-container" style={{ position: "relative" }}>
         <img
-          src="../Assets/images/user.png"
+          src={userIcon} // Imported image
           className="account"
           id="accountIcon"
           alt="Account Icon"
