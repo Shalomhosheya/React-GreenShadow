@@ -2,13 +2,14 @@ import React from "react";
 
 // Importing images from the src folder
 import userIcon from "../Assets/images/user.png";
+import menuIcon from "../Assets/images/menu.png";
 
 function AccountDetails() {
   return (
     <div>
       {/* Hamburger menu icon */}
       <img
-        src={userIcon} // Imported image
+        src={menuIcon} // Imported image
         className="hamburger"
         id="hamburger"
         alt="Menu Icon"
