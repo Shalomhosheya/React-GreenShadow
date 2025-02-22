@@ -15,7 +15,6 @@ function App() {
   return (
     <Router>
         <Routes>
-          
           <Route path="/" element={<LoginPage />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/FieldPage" element={<FieldPage />} />
@@ -23,8 +22,8 @@ function App() {
           <Route path="/VehiclePage" element={<VehiclePage />} />
           <Route path='/ReservationPage' element={<ReservationPage />} />
           <Route path='/CropPage' element={<CropPage />} />
-          <Route path='/EquipmentPage' element={<EquipmentPage />} />
-          <Route path='/EquipmentDetailPage' element={<EquipmentDetailPage />} />
+          <Route path='/EquipmentPage' element={<EquipmentDetailPage />} />
+          <Route path='/EquipmentDetailPage' element={<EquipmentPage />} />
           <Route path='/MonitoringLogPage' element={<MonitoringLogPage />} />
         </Routes>
       

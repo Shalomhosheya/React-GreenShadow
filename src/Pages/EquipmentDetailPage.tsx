@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import AccountDetails from "../Component/AccountDetail";
 import Sidebar from "../Component/Sidebar";
+import axios from "axios";
 
 function EquipmentDetailPage() {
+  const [equipName,setEquipName] = useState("");
+  const [equipType,setequipType] = useState("");
+  const [equipstatus,setEquipstatus] = useState("");
+
+  const equiptypesArr = ["metal","wood","iron"];
+  const equipstatusArr = ["good","bad"];
+
+  const handlereq = async ()=>{
+    
+    try {
+      const response = await axios.post("http://localhost:3000/equipment/addEquipment", {
+        name: equipName,
+        type: equipType,
+        status: equipstatus
+      });
+      alert("equip added successfully!");
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error adding equip:", error);
+      alert("Failed to add equip");
+    }
+  }
+
   return (
     <div>
       <AccountDetails />
@@ -33,6 +57,8 @@ function EquipmentDetailPage() {
                     placeholder="Enter equipment name"
                     aria-label="Equipment Name"
                     aria-describedby="addon-wrapping"
+                    value={equipName}
+                    onChange={(e)=>setEquipName(e.target.value)}
                   />
                 </div>
 
@@ -40,11 +66,15 @@ function EquipmentDetailPage() {
                   <label className="input-group-text" htmlFor="type_E">
                     Type
                   </label>
-                  <select className="form-select" id="type_E">
+                  <select className="form-select" id="type_E" value={equipType} onChange={(e)=>setequipType(e.target.value)}>
                     <option value="" disabled selected>
-                      Choose...
+                    choose
                     </option>
-                    {/* Add dynamic options here */}
+                    {equiptypesArr.map((cat, index) => (
+                    <option key={index} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
                   </select>
                 </div>
 
@@ -52,17 +82,21 @@ function EquipmentDetailPage() {
                   <label className="input-group-text" htmlFor="status_E">
                     Status
                   </label>
-                  <select className="form-select" id="status_E">
+                  <select className="form-select" id="status_E" value={equipstatus} onChange={(e)=>setEquipstatus(e.target.value)}>
                     <option value="" disabled selected>
-                      Choose...
+                      choose
                     </option>
-                    {/* Add dynamic options here */}
+                    {equipstatusArr.map((cat,index)=>(
+                        <option key={index} value={cat}>
+                        {cat}
+                        </option>
+                      ))}
                   </select>
                 </div>
               </div>
 
               <div>
-                <button type="button" className="btn btn-primary" id="addBtn_E">
+                <button type="button" className="btn btn-primary" id="addBtn_E" onClick={handlereq}>
                   ADD
                 </button>
                 <button

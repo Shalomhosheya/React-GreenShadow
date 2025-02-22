@@ -3,6 +3,7 @@ import AccountDetails from "../Component/AccountDetail";
 import Sidebar from "../Component/Sidebar";
 
 function EquipmentPage() {
+   
   return (
     <div>
       {/* Account Details */}
