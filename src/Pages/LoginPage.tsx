@@ -88,8 +88,8 @@ function LoginPage() {
               placeholder="First name"
               required
               className="field"
-              value={signupData.firstName}
-              onChange={(e) => setSignupData({ ...signupData, firstName: e.target.value })}
+              value={signupData.firstname}
+              onChange={(e) => setSignupData({ ...signupData, firstname: e.target.value })}
             />
             <input
               type="text"
