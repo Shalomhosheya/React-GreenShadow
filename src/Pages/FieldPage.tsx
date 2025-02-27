@@ -1,150 +1,146 @@
-import React from 'react';
-import Sidebar from '../Component/Sidebar';
-import AccountDetails from '../Component/AccountDetail';
+import React, { useState } from "react";
+import Sidebar from "../Component/Sidebar";
+import AccountDetails from "../Component/AccountDetail";
+import axios from "axios";
 
 function FieldPage() {
+  // State for form fields
+  const [fieldData, setFieldData] = useState({
+    name: "",
+    location: "",
+    size: "",
+    staff: "",
+  });
+
+  // State for images
+  const [image1, setImage1] = useState<File | null>(null);
+  const [image2, setImage2] = useState<File | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFieldData({ ...fieldData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, setImage: React.Dispatch<React.SetStateAction<File | null>>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const addField = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const formData = new FormData();
+    formData.append("fieldName", fieldData.name);
+    formData.append("fieldLocation", fieldData.location);
+    formData.append("fieldSize", fieldData.size);
+    formData.append("staff", fieldData.staff);
+    
+    if (image1) formData.append("pic1", image1);
+    if (image2) formData.append("pic2", image2);
+
+    try {
+      const response = await axios.post("http://localhost:3000/field/addField", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      alert("Field added successfully!");
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error adding field:", error);
+      alert("Failed to add field. Please try again.");
+    }
+  };
+
   return (
-    <body>
-        <AccountDetails/>
-    <div className="dashboard-container">
-      <Sidebar />
-      <main className="content">
-        <h2 className="text-center anim1">Field Input</h2>
-        <br />
-        <br />
+    <div>
+      <AccountDetails />
+      <div className="dashboard-container">
+        <Sidebar />
+        <main className="content">
+          <h2 className="text-center anim1">Field Input</h2>
+          <div className="container-fluid anim1">
+            <div className="card mx-auto p-1" style={{ maxWidth: "90%", minHeight: "80vh" }}>
+              <div className="card-body stylecard mainContent">
+                <p>Field ID: <label id="lbl1"></label></p>
 
-        <div className="container-fluid anim1">
-          <div className="card mx-auto p-1" style={{ maxWidth: '90%', minHeight: '80vh' }}>
-            <div className="card-body stylecard mainContent">
-              <p>
-                Field ID: <label id="lbl1"></label>
-              </p>
-              <br />
-              <br />
-
-              {/* Field Name */}
-              <div className="input-group mb-4">
-                <span className="input-group-text" id="addon-wrapping">
-                  Field Name
-                </span>
-                <input
-                  id="fieldName"
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter field name"
-                  aria-label="Field Name"
-                  aria-describedby="addon-wrapping"
-                />
-              </div>
-
-              {/* Field Location */}
-              <div className="input-group mb-4">
-                <span className="input-group-text" id="addon-wrapping2">
-                  Field Location
-                </span>
-                <input
-                  id="fieldLocation"
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter field location"
-                  aria-label="Field Location"
-                  aria-describedby="addon-wrapping2"
-                />
-              </div>
-
-              {/* Size of the Field */}
-              <div className="input-group mb-4">
-                <span className="input-group-text" id="addon-wrapping3">
-                  Size of the Field
-                </span>
-                <input
-                  id="sizefield"
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter field size"
-                  aria-label="Field Size"
-                  aria-describedby="addon-wrapping3"
-                />
-              </div>
-
-              {/* Staff */}
-              <div className="input-group mb-4">
-                <span className="input-group-text" id="addon-wrapping4">
-                  Staff
-                </span>
-                <input
-                  id="staff"
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter staff name"
-                  aria-label="Staff"
-                  aria-describedby="addon-wrapping4"
-                />
-              </div>
-
-              <div className="card mx-auto p-4" style={{ maxWidth: '90%', minHeight: '80vh' }}>
-                <div className="card-body">
-                  {/* File Upload 1 */}
-                  <div className="input-group mb-4">
-                    <input type="file" className="form-control" id="inputGroupFile04" />
-                  </div>
-
-                  {/* File Upload 2 */}
-                  <div className="input-group mb-4">
-                    <input type="file" className="form-control" id="inputGroupFile03" />
-                  </div>
-
-                  {/* Image Preview */}
-                  <img
-                    id="previewImage1"
-                    className="rounded float-start mb-4"
-                    style={{ maxWidth: '45%' }}
-                    alt="Preview Image 1"
-                  />
-                  <img
-                    id="previewImage2"
-                    className="rounded float-end mb-4"
-                    style={{ maxWidth: '45%' }}
-                    alt="Preview Image 2"
+                {/* Field Name */}
+                <div className="input-group mb-4">
+                  <span className="input-group-text">Field Name</span>
+                  <input
+                    name="name"
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter field name"
+                    value={fieldData.name}
+                    onChange={handleChange}
                   />
                 </div>
 
-                <button type="button" className="btn btn-danger" id="addBTN">
+                {/* Field Location */}
+                <div className="input-group mb-4">
+                  <span className="input-group-text">Field Location</span>
+                  <input
+                    name="location"
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter field location"
+                    value={fieldData.location}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                {/* Size of the Field */}
+                <div className="input-group mb-4">
+                  <span className="input-group-text">Size of the Field</span>
+                  <input
+                    name="size"
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter field size"
+                    value={fieldData.size}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                {/* Staff */}
+                <div className="input-group mb-4">
+                  <span className="input-group-text">Staff</span>
+                  <input
+                    name="staff"
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter staff name"
+                    value={fieldData.staff}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                {/* File Upload 1 */}
+                <div className="input-group mb-4">
+                  <input
+                    type="file"
+                    className="form-control"
+                    onChange={(e) => handleFileChange(e, setImage1)}
+                  />
+                </div>
+
+                {/* File Upload 2 */}
+                <div className="input-group mb-4">
+                  <input
+                    type="file"
+                    className="form-control"
+                    onChange={(e) => handleFileChange(e, setImage2)}
+                  />
+                </div>
+
+                <button className="btn btn-danger" onClick={addField}>
                   Add
                 </button>
-                <br />
-                <button type="button" className="btn btn-primary" id="updateBtn">
-                  Update
-                </button>
-                <br />
-                <button type="button" className="btn btn-warning deleteClass" id="deleteBtn">
-                  Delete
-                </button>
-                <br />
-                <button type="button" className="btn btn-dark" id="resetBTN">
-                  Reset
-                </button>
               </div>
-              <br />
-              <table id="fieldsTable" className="table table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">Field ID</th>
-                    <th scope="col">Field Name</th>
-                    <th scope="col">Field Location</th>
-                    <th scope="col">Size of the Land</th>
-                    <th scope="col">Staff</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
-    </body>
-    
   );
 }
 
